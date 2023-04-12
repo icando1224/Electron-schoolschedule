@@ -1,0 +1,236 @@
+@font-face
+  font-family: 'Avenir'
+  src: url('./assets/font/AvenirLTStd-Book.otf') format('opentype')
+
+@font-face
+  font-family: 'Avenir-Bold'
+  src: url('./assets/font/AvenirNextLTPro-Bold.otf') format('opentype')
+
+@font-face
+  font-family: 'Lato'
+  src: url('./assets/font/Lato-Regular.ttf') format('truetype')
+  unicode-range: U+0370-03FF
+
+@font-face
+  font-family: 'Lato-Bold'
+  src: url('./assets/font/Lato-Black.ttf') format('truetype')
+  unicode-range: U+0370-03FF
+
+@function color($color-name)
+  @return var(--color-#{$color-name})
+
+:root
+  --color-bg-one: #FFFFFF
+  --color-bg-two: #f9f9f9
+  --color-bg-three: #C6C6C6
+  --color-bg-card: #FFFFFF,
+  --color-text-one: 56, 62, 83, 1       //#383E53
+  --color-text-two: 114, 123, 150, 1    //#727B96
+  --color-accent: #0366FC
+  --color-accent-rgb: 3,102,252
+  --color-card-shadow-rgb: 114, 123, 150
+  --color-blackwhite: 0,0,0
+
+*
+  margin: 0
+  padding: 0
+  font-family: 'Lato', 'Avenir', sans-serif
+  user-select: none
+  transition: all .4 ease
+
+body
+  background: color(bg-one)
+  overflow-x: hidden
+
+.header
+  position: relative
+  width: calc(100vw - 250px)
+  height: 120px
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+
+  .text
+    margin-left: 50px
+
+  .title, span
+    font-family: 'Lato-Bold', 'Avenir-Bold', sans-serif
+    font-size: 30px
+    color: rgba(color(text-one))
+    margin-bottom: 5px
+
+  .subtitle
+    font-weight: 400
+    font-size: 16px
+    color: rgba(color(text-two))
+
+  button
+    margin-left: 50px
+    margin-right: 50px
+
+  .icon
+    margin-right: 50px
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    outline: 0
+    border: 0
+    &:hover
+      i
+        background: rgba(color(accent-rgb), .2)
+
+    i
+      padding: 15px
+      border-radius: 50%
+      background: rgba(color(accent-rgb), .1)
+      font-size: 26px
+      color: color(accent)
+      transition: all .2s ease
+
+// BUTTON
+.btn
+  height: 45px
+  padding: 0 30px
+  border-radius: 4px
+  cursor: pointer
+  font-size: 16px
+  font-weight: 400
+  background: transparent
+  text-align: center
+  overflow: visible
+  transition: all .2s ease
+  text-decoration: none
+  display: block
+  outline: none
+  border: none
+  white-space: nowrap
+
+.btn-primary--accent
+  color: white
+  background: color(accent)
+  &:hover, &:focus
+    background: color(accent-hover)
+
+.btn-secondary--accent
+  color: rgba(color(text-one))
+  border: 1px solid rgba(color(blackwhite),.1)
+  background: transparent
+  &:hover, &:focus
+    background: color(accent)
+    border-color: color(accent)
+    color: white
+
+.btn-disabled
+  background: rgba(color(accent-rgb), .5)
+  cursor: not-allowed
+  &:hover, &:focus
+    background: rgba(color(accent-rgb), .5)
+
+// INPUT
+.input-container
+  width: auto
+  height: auto
+  display: flex
+  flex-direction: column
+  &:focus-within
+    label
+      color: color(accent)
+
+  input, select, textarea
+    color: rgba(color(text-one))
+    border-radius: 4px
+    width: 335px
+    height: 45px
+    margin-bottom: 25px
+    padding-left: 15px
+    font-weight: 400
+    font-size: 16px
+    background: transparent
+    border: 1px solid rgba(color(blackwhite),.1)
+    transition: all .4s ease
+    outline: 0
+    &:hover
+      border-color: rgba(color(blackwhite),.2)
+    &:focus
+      border-color: color(accent)
+    &:focus ~ label
+      color: color(accent)
+
+  input[type="time"]
+    text-align: right
+
+  select
+    cursor: pointer
+    width: 350px
+
+    option
+      background: color(bg-two)
+
+  label
+    pointer-events: none
+    transition: all .4s ease
+    position: relative
+    // margin-left: 15px
+    margin-right: 15px
+    font-size: 15px
+    margin-bottom: 10px
+    display: inline-block
+    color: rgba(color(text-one))
+
+  .input-invalid
+    color: #fa5e62
+
+// CUSTOM CHECKBOX
+.checkbox
+  position: relative
+  width: 30px
+  height: 30px
+  border-radius: 4px
+  border: 1px solid rgba(0,0,0,.1)
+
+  input
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 999
+    opacity: 0
+    cursor: pointer
+    &:checked ~ .custom-checkbox
+      background: color(accent)
+
+      i
+        opacity: 1
+
+  .custom-checkbox
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: transparent
+    border-radius: 4px
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    i
+      opacity: 0
+      font-size: 18px
+      color: white
+
+
+::-webkit-scrollbar
+  width: 10px
+  height: 10px
+
+::-webkit-scrollbar-track
+  background: color(bg-two)
+
+::-webkit-scrollbar-thumb
+  background: color(bg-three)

@@ -1,0 +1,79 @@
+<div class="header">
+  <div class="text">
+    <h1 class="title" translate>TITLE.settings</h1>
+    <h2 class="subtitle" translate>SUBTITLE.settings</h2>
+  </div>
+</div>
+<div class="container">
+  <ul>
+    <li *ngIf="objKeys(_DataService.data['weeks']).length !== 0">
+      <h1 class="title" translate>SETTINGS.week</h1>
+      <div class="input-container">
+        <select (click)="changeCurrentWeek($event.target.value)">
+          <option *ngFor="let item of weeks" [value]="item" [selected]="item === _DataService.data['currentWeek']">
+            {{ item }}</option>
+        </select>
+      </div>
+    </li>
+    <li>
+      <h1 class="title" translate>SETTINGS.language</h1>
+      <div class="input-container">
+        <select (click)="changeLanguage($event.target.value)">
+          <option value="en" [selected]="getCurrentLang() === 'en'">English</option>
+          <option value="hu" [selected]="getCurrentLang() === 'hu'">Magyar</option>
+          <option value="de" [selected]="getCurrentLang() === 'de'">Deutsch</option>
+          <option value="it" [selected]="getCurrentLang() === 'it'">Italiano</option>
+          <option value="fr" [selected]="getCurrentLang() === 'fr'">Français</option>
+          <option value="vn" [selected]="getCurrentLang() === 'vn'">Tiếng Việt</option>
+          <option value="pt" [selected]="getCurrentLang() === 'pt'">Português (Brasil)</option>
+          <option value="es_AR" [selected]="getCurrentLang() === 'es_AR'">Español (argentino)</option>
+          <option value="es_MX" [selected]="getCurrentLang() === 'es_MX'">Español (mexicano)</option>
+          <option value="zh" [selected]="getCurrentLang() === 'zh'">简体中文</option>
+          <option value="el" [selected]="getCurrentLang() === 'el'">Ελληνικά</option>
+          <option value="ko" [selected]="getCurrentLang() === 'ko'">한국어</option>
+          <option value="ru" [selected]="getCurrentLang() === 'ru'">Русский</option>
+          <option value="ua" [selected]="getCurrentLang() === 'ua'">Українська</option>
+        </select>
+      </div>
+    </li>
+    <li>
+      <h1 class="title" translate>SETTINGS.THEME.theme</h1>
+      <div class="theme-container">
+        <div class="theme-inner-container">
+          <p translate>SETTINGS.THEME.darkMode</p>
+          <div class="checkbox">
+            <input type="checkbox" (click)="changeTheme()" [checked]="darkMode" />
+            <div class="custom-checkbox">
+              <i class="eva eva-checkmark-outline"></i>
+            </div>
+          </div>
+        </div>
+        <div class="theme-inner-container">
+          <p translate>SETTINGS.THEME.mainColor</p>
+          <ul class="color-container">
+            <li style="background-color: #0366FC" (click)="changeAccentColor('#0366FC')"><i
+                class="eva eva-checkmark-outline" *ngIf="accentColor === '#0366FC'"></i></li>
+            <li style="background-color: #fa5e62" (click)="changeAccentColor('#fa5e62')"><i
+                class="eva eva-checkmark-outline" *ngIf="accentColor === '#fa5e62'"></i></li>
+            <li style="background-color: #27ae60" (click)="changeAccentColor('#27ae60')"><i
+                class="eva eva-checkmark-outline" *ngIf="accentColor === '#27ae60'"></i></li>
+            <li style="background-color: #8980F5" (click)="changeAccentColor('#8980F5')"><i
+                class="eva eva-checkmark-outline" *ngIf="accentColor === '#8980F5'"></i></li>
+            <li style="background-color: #E5A910" (click)="changeAccentColor('#E5A910')"><i
+                class="eva eva-checkmark-outline" *ngIf="accentColor === '#E5A910'"></i></li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <li>
+      <h1 class="title" translate>SETTINGS.DATA.data</h1>
+      <div class="buttons">
+        <button class="btn btn-secondary--accent" (click)="importData()" translate>SETTINGS.DATA.import</button>
+        <button class="btn btn-secondary--accent" (click)="exportData()" translate>SETTINGS.DATA.export</button>
+      </div>
+      <p class="status status-error" *ngIf="showErrorText" translate>SETTINGS.DATA.error</p>
+      <p class="status" *ngIf="showExportText" translate>SETTINGS.DATA.exportSuccess</p>
+      <p class="status" *ngIf="showImportText" translate>SETTINGS.DATA.importSuccess</p>
+    </li>
+  </ul>
+</div>

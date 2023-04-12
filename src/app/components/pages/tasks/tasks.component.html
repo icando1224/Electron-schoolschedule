@@ -1,0 +1,45 @@
+<div class="header">
+  <div class="text">
+    <h1 class="title" translate>TITLE.tasks</h1>
+    <h2 class="subtitle" translate>SUBTITLE.tasks</h2>
+  </div>
+  <button class="btn btn-primary--accent" routerLink="/new-task" translate>TITLE.newTask</button>
+</div>
+<div class="container container-clear" *ngIf="_DataService.data['tasks'].length === 0">
+  <div class="text">
+    <h1 class="title" translate>TASKS.title</h1>
+    <h2 class="subtitle" translate>TASKS.subtitle</h2>
+  </div>
+</div>
+<div class="container" *ngIf="_DataService.data['tasks'].length !== 0">
+  <ul>
+    <li *ngFor="let task of _DataService.data['tasks']">
+      <div class="task-header">
+        <div class="left-side">
+          <div class="task-checkbox">
+            <input type="checkbox" [checked]="task['checked']" (click)="_TaskService.changeTaskChecked(task)">
+            <div class="task-custom-checkbox">
+              <i class="eva eva-checkmark-outline"></i>
+            </div>
+          </div>
+          <div class="text">
+            <p class="task" [ngClass]="{'checked': task['checked']}">{{task['task']}}</p>
+          </div>
+          <div class="clickable" (click)="openTask($event.target)"></div>
+        </div>
+        <div class="buttons">
+          <div class="button edit-button" (click)="editTask(task)">
+            <i class="eva eva-edit-2-outline"></i>
+          </div>
+          <div class="button delete-button" appHoldDelete (holdTime)="holdHandler($event, task, 'delete')">
+            <div class="deletebg" [ngStyle]="{'width': currentTask === task ? deleteProgress + '%' : 0 }"></div>
+            <i class="eva eva-trash-outline"></i>
+          </div>
+        </div>
+      </div>
+      <div class="task-description">
+        <p *ngIf="task['description'] !== undefined" [innerHTML]="getFormattedDescription(task['description']) | safeHtml"></p>
+      </div>
+    </li>
+  </ul>
+</div>

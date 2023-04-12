@@ -1,0 +1,88 @@
+{
+  "TITLE": {
+    "timetable": "Timetable",
+    "tasks": "Tasks",
+    "settings": "Settings",
+    "newLesson": "Add new lesson",
+    "editLesson": "Edit lesson",
+    "newTask": "Add new task",
+    "editTask": "Edit task"
+  },
+  "SUBTITLE": {
+    "timetable": "Here you can see your weekly schedule. Right click on the lessons to edit or delete them.",
+    "tasks": "Here you can see your tasks. To delete a task press and hold the delete button.",
+    "settings": "You can change here your preferences. They will be automatically saved.",
+    "newLesson": "Set the lesson's details, then save it.",
+    "editLesson": "Edit the lesson's details, then save it.",
+    "newTask": "Set the task, then save it."
+  },
+  "SETTINGS": {
+    "language": "Language",
+    "week": "Current week",
+    "THEME": {
+      "theme": "Theme",
+      "darkMode": "Dark mode",
+      "mainColor": "Main color"
+    },
+    "DATA": {
+      "data": "Data",
+      "error": "An error has occured!",
+      "exportSuccess": "The data was successfully exported!",
+      "importSuccess": "The data was successfully imported!",
+      "export": "Export",
+      "import": "Import"
+    }
+  },
+  "TIMETABLE": {
+    "title": "Your timetable is empty right now",
+    "subtitle": "Start by adding a new lesson with the button in the top right corner."
+  },
+  "TASKS": {
+    "title": "You have no tasks right now",
+    "subtitle": "Start by adding a new task with the button in the top right corner."
+  },
+  "NEWLESSON": {
+    "newButton": "Save and add lesson",
+    "editButton": "Save lesson",
+    "NORMAL": {
+      "start_time": "Start time",
+      "finish_time": "Finish time",
+      "lesson_name": "Lesson name",
+      "teacher_name": "Teacher name (optional)",
+      "class_room": "Class room (optional)",
+      "week": "Week",
+      "day": "Day"
+    },
+    "ERROR": {
+      "start_time": "Start time is required.",
+      "finish_time": "Finish time is required.",
+      "lesson_name": "Lesson name is required.",
+      "lesson_name_maxlength": "Lesson name can not be longer than 45 characters.",
+      "week": "Week is required.",
+      "day": "Day is required."
+    }
+  },
+  "NEWTASK": {
+    "button": "Save and add task",
+    "NORMAL": {
+      "task": "Task",
+      "description": "Description (optional)"
+    },
+    "ERROR": {
+      "task": "Title is required."
+    }
+  },
+  "DAYS": {
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday"
+  },
+  "CONTEXTMENU": {
+    "delete": "Press and hold to delete",
+    "edit": "Click to edit"
+  }
+}
